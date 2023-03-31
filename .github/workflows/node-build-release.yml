@@ -28,21 +28,15 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '16.16.0'
-      - name: Install Dependencies
-        run: npm ci
       - name: Build Package
         run: |
-          npm run build
+          npm i -g pnpm
+          pnpm install
+          pnpm run build
       - name: Create zip
         uses: montudor/action-zip@v1
         with:
           args: zip -qq -r ${{ steps.get_name.outputs.value }}_v${{ steps.get_version.outputs.value }}.zip dist
-      - name: Create ChangeLog Text
-        id: changelog_text
-        uses: loopwerk/tag-changelog@v1
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          config_file: .github/scripts/tag-changelog-config.js
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
@@ -51,7 +45,7 @@ jobs:
         with:
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
-          body: ${{ steps.changelog_text.outputs.changes }}
+          body: ${{ steps.get_version.outputs.value }}
           draft: false
           prerelease: false
       - name: Upload Release
