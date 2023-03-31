@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="copyright" content="Light">
+  <link rel="stylesheet" href="./index.css">
+  <script type="text/javascript" src="./index.js"></script>
+  <title>Floccus</title>
+</head>
+
+<body>
+  <div id="app">
+    <p class="main">
+      <label for="select-file">文件：</label>
+      <input id="select-file" type="file" accept=".xbel, .html"></input>
+    </p>
+    <p class="main">
+      <label for="bookmark-file">书签路径：</label>
+      <input id="bookmark-file" type="text" placeholder="相对于 WebDAV URL 的书签路径" />
+    </p>
+    <p class="main">
+      <label for="passphrase">密码短语：</label>
+      <input id="passphrase" type="password" placeholder="用于加密书签文件的密码短语" />
+    </p>
+
+    <div class="btns main">
+      <button type="button" id="encode">加密</button>
+      <button type="button" id="decode">解密</button>
+    </div>
+
+    <p id="tips" class="main"></p>
+  </div>
+</body>
+
+</html>

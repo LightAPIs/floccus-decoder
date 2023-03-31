@@ -1,0 +1,29 @@
+body {
+  background: #467b96;
+  color: #dae5ea;
+  font-size: 18px;
+  overflow: hidden;
+}
+.main {
+  display: flex;
+  justify-content: center;
+}
+.main input[type='file'] {
+  cursor: pointer;
+}
+.main input[type='text'],
+.main input[type='password'] {
+  border: 1px solid #2196f3;
+  border-radius: 3px;
+  padding: 0 8px;
+  width: 15em;
+}
+.main button {
+  background: #608ea5;
+  border: 1px solid #608ea5;
+  border-radius: 3px;
+  color: #fff;
+  cursor: pointer;
+  margin: 0 25px;
+  padding: 5px;
+}
